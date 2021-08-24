@@ -2,27 +2,21 @@ import React from 'react'
 import "../App.css";
 import Typewriter from "react-typewriter-effect";
 
-function HeroSection() {
+export default function HeroSection() {
     return (
       <div className="hero-container">
         <Typewriter
           textStyle={{
-            fontFamily: "Red Hat Display",
+            
             color: "white",
-            fontWeight: 500,
+            fontWeight: 800,
             fontSize: "1.5em",
             marginLeft: "15px",
+            marginTop: "100px"
           }}
           cursorColor="white"
           hideCursorAfterText
           text="PROBLEM MED BILEN?"
-          // multiText={[
-          //   "PROBLEM MED BILEN?",
-          //   "Trasig, defekt, Motorras...",
-          //   "Vi köper alt!",
-          //   "Gratis värdering inom 1 timme.",
-          // ]}
-          // multiTextDelay={100}
         />
         <Typewriter
           textStyle={{
@@ -38,8 +32,8 @@ function HeroSection() {
         />
         <Typewriter
           textStyle={{
-            color: "lightGray",
-            fontWeight: 500,
+            color: "white",
+            fontWeight: 700,
             fontSize: "1.5em",
             marginLeft: "15px",
             marginTop: "20px",
@@ -54,4 +48,3 @@ function HeroSection() {
     );
 }
 
-export default HeroSection;
