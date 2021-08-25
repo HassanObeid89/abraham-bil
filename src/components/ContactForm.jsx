@@ -2,8 +2,30 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import {TextField} from './TextField'
 import * as Yup from 'yup'
+import emailjs from 'emailjs-com'
+
 
 export default function ContactForm() {
+
+    function sendEmail(e) {
+        e.preventDefault();
+
+        emailjs
+          .sendForm(
+            process.env.REACT_APP_serviceId,
+            process.env.REACT_APP_templateId,
+            e.target,
+            process.env.REACT_APP_userId,
+          )
+          .then(
+            () => {
+              alert('Thanks for choosing Us');
+            },
+            (error) => {
+              alert('Ooopppsss!')
+            });
+            e.target.reset()
+    }
     const validate = Yup.object({
       Namn: Yup.string().max(15).required("Required"),
       Epost: Yup.string().email("Email is invalid").required("Required"),
@@ -23,14 +45,10 @@ export default function ContactForm() {
           EventuellaDefekter: "",
         }}
         validationSchema={validate}
-        onSubmit={values => {
-            console.log(values)
-        }}
       >
-        {(formik) => (
+        {() => (
           <div>
-            
-            <Form>
+            <Form onSubmit={sendEmail}>
               <TextField label="Namn" name="Namn" type="text" />
               <TextField label="E-post" name="Epost" type="text" />
               <TextField
@@ -49,7 +67,9 @@ export default function ContactForm() {
                 name="EventuellaDefekter"
                 type="text"
               />
-              <button mailto='hassan.obeid.ho@hotmail.com' type='submit'>SKICKA</button>
+              <button type="submit">
+                SKICKA
+              </button>
             </Form>
           </div>
         )}
