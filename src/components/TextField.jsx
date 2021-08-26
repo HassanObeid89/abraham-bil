@@ -1,16 +1,26 @@
 import React from 'react'
 import '../App.css'
 import { ErrorMessage, useField } from 'formik'
+import { Form, Input, TextArea, Button, Select } from "semantic-ui-react";
 
 export const TextField = ({ label, ...props }) => {
 
     const [field] = useField(props)
 
     return (
-      <div>
-        <label htmlFor={field.name}>{label}</label>
-        <input {...field} {...props} autoComplete="off" />
-        <ErrorMessage component='div' className='error' name={field.name} />
+      <div className="formDiv">
+      
+        <input
+          className="formInput"
+          placeholder=" "
+          {...field}
+          {...props}
+          autoComplete="off"
+        />
+        <label className="formLabel" htmlFor={field.name}>
+          {label}
+        </label>
+        <ErrorMessage component="div" className="error" name={field.name} />
       </div>
     );
 }

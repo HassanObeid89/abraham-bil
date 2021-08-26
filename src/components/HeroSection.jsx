@@ -6,13 +6,13 @@ export default function HeroSection() {
     return (
       <div className="hero-container">
         <Typewriter
+        className='typewriter'
           textStyle={{
             
             color: "white",
             fontWeight: 800,
-            fontSize: "1.5em",
-            marginLeft: "15px",
-            marginTop: "100px"
+            marginTop: "100px",
+            
           }}
           cursorColor="white"
           hideCursorAfterText
@@ -23,25 +23,24 @@ export default function HeroSection() {
             color: "white",
             fontWeight: 500,
             fontSize: "1em",
-            marginLeft: "15px",
           }}
           cursorColor="white"
           hideCursorAfterText
           startDelay={2100}
-          text="Trasig, defekt, Motorras..."
+          text="Trasig, defekt, motorras..."
         />
         <Typewriter
           textStyle={{
             color: "white",
             fontWeight: 700,
             fontSize: "1.5em",
-            marginLeft: "15px",
             marginTop: "20px",
+            marginLeft: "90px"
           }}
           cursorColor="white"
           hideCursorAfterText
           startDelay={5000}
-          text="VI KÖPER ALT!"
+          text="VI KÖPER ALLT!"
           typeSpeed={200}
         />
       </div>

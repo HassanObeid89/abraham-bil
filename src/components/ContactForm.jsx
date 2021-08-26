@@ -1,8 +1,9 @@
 import React from 'react'
-import { Formik, Form } from 'formik'
+import { Formik, Form} from 'formik'
 import {TextField} from './TextField'
 import * as Yup from 'yup'
 import emailjs from 'emailjs-com'
+
 
 
 export default function ContactForm() {
@@ -47,8 +48,9 @@ export default function ContactForm() {
         validationSchema={validate}
       >
         {() => (
-          <div>
-            <Form onSubmit={sendEmail}>
+          <div className="l-form">
+            
+            <Form className="form" onSubmit={sendEmail}>
               <TextField label="Namn" name="Namn" type="text" />
               <TextField label="E-post" name="Epost" type="text" />
               <TextField
@@ -60,6 +62,7 @@ export default function ContactForm() {
                 label="Registrering Nummer"
                 name="RegistreringNummer"
                 type="number"
+                
               />
               <TextField label="Önskat Pris" name="ÖnskatPris" type="number" />
               <TextField
@@ -67,7 +70,8 @@ export default function ContactForm() {
                 name="EventuellaDefekter"
                 type="text"
               />
-              <button type="submit">
+
+              <button className="formButton" type="submit">
                 SKICKA
               </button>
             </Form>
