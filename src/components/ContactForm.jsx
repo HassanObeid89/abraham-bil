@@ -3,7 +3,7 @@ import { Formik, Form} from 'formik'
 import {TextField} from './TextField'
 import * as Yup from 'yup'
 import emailjs from 'emailjs-com'
-import ConfermationModal from "./ConfermationModal";
+import ConfirmationModal from "./ConfirmationModal";
 
 
 export default function ContactForm() {
@@ -86,7 +86,7 @@ export default function ContactForm() {
               >
                 SKICKA
               </button>
-              <ConfermationModal
+              <ConfirmationModal
                 setOpen={setOpen}
                 open={open}
               />
