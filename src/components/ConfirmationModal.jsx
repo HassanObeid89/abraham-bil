@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal, Button, Header, Icon } from "semantic-ui-react";
 
-function ConfermationModal({setOpen,open}) {
+function ConfirmationModal({setOpen,open}) {
     
     return (
       <div>
@@ -32,4 +32,4 @@ function ConfermationModal({setOpen,open}) {
     );
 }
 
-export default ConfermationModal;
+export default ConfirmationModal;
