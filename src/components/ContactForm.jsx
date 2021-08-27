@@ -1,33 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik, Form} from 'formik'
 import {TextField} from './TextField'
 import * as Yup from 'yup'
 import emailjs from 'emailjs-com'
-
+import ConfermationModal from "./ConfermationModal";
 
 
 export default function ContactForm() {
 
-    function sendEmail(e) {
-        e.preventDefault();
+  const [open, setOpen] = useState(false);
 
-        emailjs
-          .sendForm(
-            process.env.REACT_APP_serviceId,
-            process.env.REACT_APP_templateId,
-            e.target,
-            process.env.REACT_APP_userId,
-          )
-          .then(
-            () => {
-              alert('Thanks for choosing Us');
-            },
-            (error) => {
-              alert('Ooopppsss!')
-            });
-            e.target.reset()
-    }
-    const validate = Yup.object({
+  const schema = Yup.object().shape({
       Namn: Yup.string().max(15).required("Required"),
       Epost: Yup.string().email("Email is invalid").required("Required"),
       TelefonNummer: Yup.number().required("Required"),
@@ -35,6 +18,29 @@ export default function ContactForm() {
       ÖnskatPris: Yup.number().max(15),
       EventuellaDefekter: Yup.string(),
     });
+  
+    function sendEmail  (values)  {
+        
+          emailjs
+            .send(
+              process.env.REACT_APP_serviceId,
+              process.env.REACT_APP_templateId,
+              values,
+              process.env.REACT_APP_userId
+            )
+            .then(
+              () => {
+               setOpen(true)
+              },
+              (error) => {
+                prompt("Ooopppsss!");
+              }
+            );
+            
+    }
+    
+  
+    
     return (
       <Formik
         initialValues={{
@@ -45,12 +51,16 @@ export default function ContactForm() {
           ÖnskatPris: "",
           EventuellaDefekter: "",
         }}
-        validationSchema={validate}
+        validationSchema={schema}
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          sendEmail(values);
+          setSubmitting(false);
+          resetForm();
+        }}
       >
-        {() => (
+        {(formik) => (
           <div className="l-form">
-            
-            <Form className="form" onSubmit={sendEmail}>
+            <Form className="form" onSubmit={formik.handleSubmit}>
               <TextField label="Namn" name="Namn" type="text" />
               <TextField label="E-post" name="Epost" type="text" />
               <TextField
@@ -62,7 +72,6 @@ export default function ContactForm() {
                 label="Registrering Nummer"
                 name="RegistreringNummer"
                 type="number"
-                
               />
               <TextField label="Önskat Pris" name="ÖnskatPris" type="number" />
               <TextField
@@ -71,9 +80,16 @@ export default function ContactForm() {
                 type="text"
               />
 
-              <button className="formButton" type="submit">
+              <button
+                type="submit"
+                className="formButton"
+              >
                 SKICKA
               </button>
+              <ConfermationModal
+                setOpen={setOpen}
+                open={open}
+              />
             </Form>
           </div>
         )}
