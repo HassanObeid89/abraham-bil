@@ -61,7 +61,7 @@
 .error {
     display: flex;
     justify-content: flex-start;
-    padding-top: 42px;
+    padding-top: 45px;
     margin-left: 10px;
     color: red;
     font-size: .8rem;
@@ -92,7 +92,7 @@
 .formInput:focus + .formLabel {
     top: -.5rem;
     left: .8rem;
-    color: var(--first-color);
+    color: black;
     font-size: var(--small-font-size);
     font-weight: 500;
     z-index: 10;
@@ -115,4 +115,42 @@
   .form {
     width: 800px;
     }
+}
+
+.license-plate-search-plate {
+    position: absolute;
+    top: 0px;
+    left: 1.5px;
+    z-index: 20;
+    font-size: 1.2rem;
+    line-height: 1.65;
+    height: calc(100% - 2px);
+    background-color: #1A73E8;
+    color: white;
+    font-weight: 900;
+    padding: 10px 15px 10px 15px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    
+}
+
+.regnummer{
+    position: relative;
+    margin-bottom: 2px;
+}
+
+.regnummer label {
+    left: 3rem;
+}
+
+.regnummer .formInput {
+    
+    width: 87%;
+    margin-left: 40px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.regnummer .formInput:focus + .formLabel {
+    left: 3.2rem;
 }

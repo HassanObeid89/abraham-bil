@@ -75,11 +75,15 @@ export default function ContactForm() {
                 name="TelefonNummer"
                 type="number"
               />
-              <TextField
-                label="Registreringsnummer"
-                name="RegistreringNummer"
-                type="number"
-              />
+              <div className="regnummer">
+                <TextField
+                  label="Registreringsnummer"
+                  name="RegistreringNummer"
+                  type="text"
+                />
+                <div className="license-plate-search-plate">S</div>
+              </div>
+
               <TextField label="Önskat Pris" name="ÖnskatPris" type="number" />
               <TextField
                 label="Eventuella defekter"
