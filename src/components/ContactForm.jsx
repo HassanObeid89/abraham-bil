@@ -1,26 +1,28 @@
 import React, { useState } from 'react'
-import { Formik, Form} from 'formik'
+import { Formik, Form} from "formik";
 import {TextField} from './TextField'
 import * as Yup from 'yup'
 import emailjs from 'emailjs-com'
 import ConfirmationModal from "./ConfirmationModal";
+import { Loader, Button, Icon } from "semantic-ui-react";
 
 
 export default function ContactForm() {
 
   const [open, setOpen] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const schema = Yup.object().shape({
-      Namn: Yup.string().max(15).required("Required"),
-      Epost: Yup.string().email("Email is invalid").required("Required"),
-      TelefonNummer: Yup.number().required("Required"),
-      RegistreringNummer: Yup.number("Must be a number").required("Required"),
-      ÖnskatPris: Yup.number().max(15),
-      EventuellaDefekter: Yup.string(),
-    });
+    Namn: Yup.string().max(15).required("Obligatoriskt"),
+    Epost: Yup.string().email("Ogiltig mejladress").required("Obligatoriskt"),
+    TelefonNummer: Yup.number("Ange bara siffror").required("Obligatoriskt"),
+    RegistreringNummer:
+      Yup.string().required("Obligatoriskt"),
+    ÖnskatPris: Yup.number(),
+    EventuellaDefekter: Yup.string(),
+  });
   
     function sendEmail  (values)  {
-        
+        setLoading(true)
           emailjs
             .send(
               process.env.REACT_APP_serviceId,
@@ -30,6 +32,7 @@ export default function ContactForm() {
             )
             .then(
               () => {
+                setLoading(false)
                setOpen(true)
               },
               (error) => {
@@ -51,9 +54,13 @@ export default function ContactForm() {
           ÖnskatPris: "",
           EventuellaDefekter: "",
         }}
+        isSubmitting={() => {
+          <Loader />;
+        }}
         validationSchema={schema}
-        onSubmit={(values, { setSubmitting, resetForm }) => {
+        onSubmit={(values, { isSubmitting, setSubmitting, resetForm }) => {
           sendEmail(values);
+
           setSubmitting(false);
           resetForm();
         }}
@@ -64,32 +71,35 @@ export default function ContactForm() {
               <TextField label="Namn" name="Namn" type="text" />
               <TextField label="E-post" name="Epost" type="text" />
               <TextField
-                label="Telefon Nummer"
+                label="Telefonnummer"
                 name="TelefonNummer"
                 type="number"
               />
               <TextField
-                label="Registrering Nummer"
+                label="Registreringsnummer"
                 name="RegistreringNummer"
                 type="number"
               />
               <TextField label="Önskat Pris" name="ÖnskatPris" type="number" />
               <TextField
-                label="Eventuella Defekter"
+                label="Eventuella defekter"
                 name="EventuellaDefekter"
                 type="text"
               />
-
-              <button
+              <Button
+                size={"large"}
+                style={{ align: "center" }}
+                loading={loading}
+                primary
                 type="submit"
-                className="formButton"
+                animated
               >
-                SKICKA
-              </button>
-              <ConfirmationModal
-                setOpen={setOpen}
-                open={open}
-              />
+                <Button.Content visible>SKICKA</Button.Content>
+                <Button.Content hidden>
+                  <Icon name="arrow right" />
+                </Button.Content>
+              </Button>
+              <ConfirmationModal setOpen={setOpen} open={open} />
             </Form>
           </div>
         )}

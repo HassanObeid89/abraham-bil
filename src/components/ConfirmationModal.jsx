@@ -15,16 +15,16 @@ function ConfirmationModal({setOpen,open}) {
         >
           <Header icon>
             <Icon name="mail outline" />
-            Confirmation Message
+            Bäkreftelse
           </Header>
           <Modal.Content >
             <h1 >
-              Thanks for choosing us, will get back to you soon!
+              Tack för att du valde oss, vi återkommer så snart som möjligt!
             </h1>
           </Modal.Content>
           <Modal.Actions>
             <Button color="green" inverted onClick={() => setOpen(false)}>
-              <Icon name="checkmark" /> Done
+              <Icon name="checkmark" /> OK
             </Button>
           </Modal.Actions>
         </Modal>

@@ -38,8 +38,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    
-    font-size: var(--small-font-size);
+    font-size: var(--normal-font-size);
     border: 1px solid var(--border-color);
     border-radius: .5rem;
     outline: none;
@@ -73,7 +72,8 @@
 .formButton {
     display: block;
     margin-left: auto;
-    padding: .75rem;
+    padding: 1rem;
+    width: 10rem;
     font-weight: bold;
     outline: none;
     border: none;
