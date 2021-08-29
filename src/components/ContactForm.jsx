@@ -14,10 +14,11 @@ export default function ContactForm() {
   const schema = Yup.object().shape({
     Namn: Yup.string().max(15).required("Obligatoriskt"),
     Epost: Yup.string().email("Ogiltig mejladress").required("Obligatoriskt"),
-    TelefonNummer: Yup.number("Ange bara siffror").required("Obligatoriskt"),
-    RegistreringNummer:
-      Yup.string().required("Obligatoriskt"),
-    ÖnskatPris: Yup.number(),
+    TelefonNummer: Yup.number()
+      .typeError("Ange bara siffror")
+      .required("Obligatoriskt"),
+    RegistreringNummer: Yup.string().required("Obligatoriskt"),
+    OnskatPris: Yup.number().typeError("Ange bara siffror"),
     EventuellaDefekter: Yup.string(),
   });
   
@@ -51,7 +52,7 @@ export default function ContactForm() {
           Epost: "",
           TelefonNummer: "",
           RegistreringNummer: "",
-          ÖnskatPris: "",
+          OnskatPris: "",
           EventuellaDefekter: "",
         }}
         isSubmitting={() => {
@@ -73,7 +74,7 @@ export default function ContactForm() {
               <TextField
                 label="Telefonnummer"
                 name="TelefonNummer"
-                type="number"
+                type="text"
               />
               <div className="regnummer">
                 <TextField
@@ -84,7 +85,7 @@ export default function ContactForm() {
                 <div className="license-plate-search-plate">S</div>
               </div>
 
-              <TextField label="Önskat Pris" name="ÖnskatPris" type="number" />
+              <TextField label="Önskat Pris" name="OnskatPris" type="text" />
               <TextField
                 label="Eventuella defekter"
                 name="EventuellaDefekter"
