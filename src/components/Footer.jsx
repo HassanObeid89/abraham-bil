@@ -4,15 +4,16 @@ function Footer() {
     return (
       <div>
         <Segment inverted style={{ padding: "2em 0em" }}>
-          <Container className={'footer'} textAlign={"center"} text>
-            
+          <Container className={"footer"} textAlign={"center"} text>
             <p>
-              # bilar köpes # köper defekta bil # viköperdinbil # stockholmsbil
-              # defektabilarköpes.se # sälja min bil # bilfirma # bilpriser #
-              blocket sälja bilar # köper trasiga bil # köper bilar # byter
-              bilar # bilverkstad
+              # bilfirma # bilpriser # blocket sälja bilar # byter bilar #
+              bilverkstad # Defekta bilar köpes # defektabilarköpes.se # Trasiga
+              bilar köpes # Köper trasiga bilar # Köper bilar over hela Sverige
+              # Vi köper din bil # Viköperdinbil # Krockade bilar köpes #
+              Trasiga bilar köpes # Sälja min bil # Köper alla bilar # Köper din
+              defekt bil # Köper din krockade bil # Sälja din bil # Vi köper
+              bilar # Alla bilar köpes
             </p>
-            
           </Container>
         </Segment>
       </div>
