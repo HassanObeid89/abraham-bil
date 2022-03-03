@@ -113,7 +113,7 @@
 
 @media (min-width: 900px) {
   .form {
-    width: 800px;
+    width: 500px;
     }
 }
 
@@ -145,7 +145,7 @@
 
 .regnummer .formInput {
     
-    width: 87%;
+    width: 91%;
     margin-left: 40px;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;

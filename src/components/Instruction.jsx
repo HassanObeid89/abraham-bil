@@ -15,6 +15,20 @@ export default function Instruction() {
           gratis inom 20 minuter och du binder dig ej till något!
         </Card.Description>
       </Card>
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6103489750571064"
+        crossorigin="anonymous"
+      ></script>
+      <ins
+        class="adsbygoogle"
+        style={{display:"block"}}
+        data-ad-client="ca-pub-6103489750571064"
+        data-ad-slot="7279550602"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   );
 }

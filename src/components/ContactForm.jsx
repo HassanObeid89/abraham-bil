@@ -63,6 +63,20 @@ export default function ContactForm() {
     >
       {(formik) => (
         <div className="l-form">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6103489750571064"
+            crossorigin="anonymous"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            style={{display:"block"}}
+            data-ad-client="ca-pub-6103489750571064"
+            data-ad-slot="3499570774"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          ></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
           <Form className="form" onSubmit={formik.handleSubmit}>
             <TextField label="Namn" name="Namn" type="text" />
             <TextField label="E-post" name="Epost" type="text" />
