@@ -102,12 +102,14 @@ export default function ContactForm() {
               loading={loading}
               primary
               type="submit"
-              animated
+              
             >
-              <Button.Content visible>SKICKA</Button.Content>
-              <Button.Content hidden>
+              {/* <Button.Content visible> */}
+                SKICKA
+                {/* </Button.Content> */}
+              {/* <Button.Content hidden>
                 <Icon name="arrow right" />
-              </Button.Content>
+              </Button.Content> */}
             </Button>
             <ConfirmationModal setOpen={setOpen} open={open} />
           </Form>
