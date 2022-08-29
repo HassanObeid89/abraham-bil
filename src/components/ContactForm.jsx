@@ -70,7 +70,7 @@ export default function ContactForm() {
           ></script>
           <ins
             class="adsbygoogle"
-            style={{display:"block"}}
+            style={{ display: "block" }}
             data-ad-client="ca-pub-6103489750571064"
             data-ad-slot="3499570774"
             data-ad-format="auto"
@@ -102,14 +102,8 @@ export default function ContactForm() {
               loading={loading}
               primary
               type="submit"
-              
             >
-              {/* <Button.Content visible> */}
-                SKICKA
-                {/* </Button.Content> */}
-              {/* <Button.Content hidden>
-                <Icon name="arrow right" />
-              </Button.Content> */}
+              SKICKA
             </Button>
             <ConfirmationModal setOpen={setOpen} open={open} />
           </Form>
